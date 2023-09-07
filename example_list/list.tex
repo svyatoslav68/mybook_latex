@@ -1,0 +1,29 @@
+\documentclass[14pt]{extarticle}
+\usepackage[russian]{babel}
+\usepackage{paralist} % Это пакет для создания компактных списков
+
+\begin{document}
+\newlength{\lengthbox}
+\setlength{\lengthbox}{4cm+12pt}
+Первое предложение и сразу \fbox{\makebox[\lengthbox]{слова в рамке}}.
+\begin{itemize}
+\item Первый элемент списка (перечня);
+\item Второй элемент;
+	\item {Элемент списка с подсписком
+	\begin{itemize}
+	\item элемент вложенного перечня;
+	\item второй элемент.
+	\end{itemize}
+	}
+	\item Очередной элемент списка
+\end{itemize}
+\begin{compactitem}
+\item элемент
+\item компактного
+	\begin{compactitem}
+	\item что-то, что в списке второго уровня;
+	\item еще один элемент.
+	\end{compactitem}
+\item списка
+\end{compactitem}
+\end{document}

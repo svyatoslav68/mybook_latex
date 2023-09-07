@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{report}
+%\documentclass{article}
+%\usepackage{polyglossia}
+%\setdefaultlanguage{russian}
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[T2A]{fontenc}
+\usepackage{ucs}
+%\usepackage{lists}
+
+\usepackage{verbatim}
+\usepackage{xspace}
+\usepackage{tikz}
+\newcommand{\tikzname}{Ti\emph{k}Z\xspace}
+% Объявляем переменные для последующего использования в разных рисунках
+		\newcounter{numcolumns}
+		\newcounter{numrows}
+		\newlength{\lengthx}
+		\newlength{\lengthy}
+\newsavebox{\boxexample}
+\newenvironment{fmpage}[2][c] % Окружение для печати кода примеров в рамке
+{\begin{lrbox}{\boxexample}\begin{minipage}[#1]{#2}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\boxexample}}\vspace{3pt}}
