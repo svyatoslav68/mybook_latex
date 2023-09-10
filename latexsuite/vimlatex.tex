@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage[lmargin=30mm,rmargin=12mm]{geometry}
 
@@ -42,7 +43,25 @@ call vundle#end()            " required
 Установить plugin \texttt{vim-latex} можно и вручную. Такое часто необходимо, 
 если компьютер не подключен к сети. Для этого нужно скачать архив 
 \texttt{latexSuite.zip}, расположенный по адресу\linebreak \texttt{http://sourceforge.net/projects/vim-latex/files/},
-а и распаковать его в каталог \verb|$HOME/.vim/|
+а и распаковать его в каталог \verb|$HOME/.vim/|. После этого нужно в 
+конфигурационный файл \texttt{vim} добавить следующие строки:
+\begin{verbatim}
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+\end{verbatim}
+
 \part{Обзор основных функций.}
 Плагин \texttt{latexsuite} предоставляет множество функций и имеет почти
 неограниченные функции настройки, что называется <<под себя>>. Все их
@@ -74,6 +93,13 @@ call vundle#end()            " required
 		используются трехбуквенные абревиатуры, начинающиеся с заглавной буквы F, при
 		этом две другие буквы эквивалентны названию шрифта из соответсвующей команды 
 		\LaTeX. Примеры таких команд представлены в табл.\ref{tab:fonts}.
+			\item Для создания окружений используются трехбуквенные команды начинающиеся
+			  с заглавной буквы E:
+			  \begin{itemize}
+				  \item \texttt{ECE} создает окружение \verb|center|;
+				  \item \texttt{EQE} создает окружение \verb|quote|;
+				  \item \texttt{EEQ} создает окружение \verb|equation|.
+			  \end{itemize}
 			\item Трехбуквенные последовательности, используемые для формирования команд
 		секционирования текста начинаются в буквы \texttt{S}. Вот эти команды:
 				\begin{itemize}
@@ -121,7 +147,9 @@ call vundle#end()            " required
 Как уже говорилось ранее, \texttt{latex-suite} позволяет себя очень глубоко настраивать.
 Настройке подлежит буквально все. Можно включать или выключать отдельные функции плагина,
 можно настраивать вид вставляемых команд и окружения \LaTeX. Все настройки делаются путем
-присваивания значений вводимым данным расширением переменным. 
+присваивания значений вводимым данным расширением переменным. Лучше всего, определить эти
+переменные в файле \verb|$VIM/ftplugin/tex.vim|. При этом, в операционных системах Linux, 
+$ \$VIM = \$HOME/.vim$ 
 
 
 \end{document}
