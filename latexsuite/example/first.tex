@@ -2,7 +2,7 @@
 %\usepackage{newtxtext}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[russian,english]{babel}
+\usepackage[russian]{babel}
 \usepackage[lmargin=30mm,rmargin=15mm]{geometry}
 \usepackage[]{graphicx}
 
@@ -13,7 +13,7 @@
 	
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{Screenshot.png}
+	\includegraphics[width=.7\textwidth]{screenshot-firefox.png}
 	\caption{Снимок экрана}
 	\label{fig:screenshot}
 \end{figure}
@@ -35,5 +35,26 @@ $$\frac{a+b}{a-b}$$
 \begin{center}
 	Этот текст выровнен по центру.
 \end{center}
-jfjdkd(djfkd).
+Сейчас будет объемный абзац текста. Набран он для того, чтобы можно было проверить работу
+\texttt{latexsuite} в режиме обработок ошибок компиляции. Сначала сделаем некоторую таблицу.
+\begin{table}
+	\centering
+	\begin{tabular}{|c|l|p{3cm}|}
+		\hline
+		\textnumero&должность&ФИО\\
+		\hline
+		1.&начальник отдела&Иванов Иван Иванович\\
+		2.&его заместитель&Тюльпанов Тюльпан Утюгович\\
+		\hline
+	\end{tabular}
+	\caption{Штатное расписание}
+	\label{tab:state-department}
+\end{table}
+После объявления таблицы продолжается абзац. Ещё несколько предложений нужно добавить в абзац.
+Посмотрим, что из этого получится. Абзац должен быть достаточно большой. Добавим в него формулу, 
+размещаемую внутри строки. $\sqrt{a_{12}+b^2} = a^2+b^2$.
+
+Далее мы вставим в текст таблицу. Для полноты эксперимента код, создающий таблицу, будет размещен в другом файле. Файл этот назовем \texttt{second.tex}.
+\input{second.tex}
+Таблица, описанная в файле \texttt{second.tex} показана в таблице~\ref{tab:from-second.tex}.
 \end{document}
