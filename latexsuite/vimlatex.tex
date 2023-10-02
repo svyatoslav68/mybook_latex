@@ -116,12 +116,13 @@ let g:tex_flavor='latex'
 плагина еще не определены, поэтомы изменение переменной или вызов макросв приводит к ошибке. 
 Определять переменные плагина в этом файле можно с помощью операции \verb|let <переменная>=|. 
 Для того, чтобы можно было изменять значения переменных, операции изменения нужно определить в файле
-\verb|$VIM/after/ftplugin/tex.vim|.\sloppy
+\verb|$VIM/after/ftplugin/tex.vim|.
 Посмотреть значение какой-либо переменной можно с помощью команды командного режима \verb|:echo|. 
 Например:
 \begin{verbatim}
 	:echo g:Tex_PromptedCommands
 \end{verbatim}
+\sloppy
 
 В этом разделе мы бегло рассмотрим общие настройки пакета, а далее, в соответствующих частях 
 рассмотрим как можно настроить отдельные функции пакета.
@@ -252,7 +253,7 @@ imap <C-k> <Plug>IMAP_JumpForward
 \part{Свёртывание участков кода.}
 			При открытии tex-файла редактором \texttt{VIM} с запущенным \texttt{latexsuite}
 			все свёртывания свернуты. Конечно, можно использовать стандартные команды \texttt{VIM}
-			для управления свёртываниями. Напомним, это:
+			для управления свёртываниями. Из \cite{bib-book-vim} ясно, что это:
 			\begin{itemize}
 			  \item \texttt{zo} для открытия свёртывания;
 			  \item \texttt{zc} для закрытия свёртывания;
@@ -334,7 +335,10 @@ let g:Tex_ViewRuleComplete_pdf = 'zathura %:s?\\.tex?.pdf?'
 которая размещена в каталоге \texttt{doc}, комплекта поставки расширения, полученного
 так, как описано в части~\ref{part:install}. Кроме того, документацию можно посмотреть 
 в интернете по адресу https://vim-latex.sourceforge.net/documentation/latex-suite.html.
-Эта документация в основном и использовалась для подготовки данной статьи. 
-
+Эта документация \cite{bib-reference-latexsuite} в основном и использовалась для подготовки данной статьи. 
+\begin{thebibliography}{99}
+	\bibitem{bib-book-vim} Арнольд Роббинс, Линда Лэмб, Элберт Ханна, \emph{Изучаем редакторы vi и Vim}. 
+	\bibitem{bib-reference-latexsuite} Srinath Avadhanula, Mikolaj Machowski, \emph{Latex-Suite Reference}.
+\end{thebibliography}
 \end{document}
 
